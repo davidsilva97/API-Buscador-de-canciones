@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Canciones</title>
+
+    <style>
+
+        html{
+            font-family:'Lucida Sans';
+        }
+
+        body{
+            background-image: url(./assets/fondo.png);
+            object-fit: cover;
+        }
+
+        .input{
+            font-size: 1.5rem;
+            padding: 10px;
+            width: 80%;
+            margin-left: 10%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: 1px solid white;
+            background-color: rgba(255, 251, 28, 0.281);
+            color: rgb(92, 92, 91);
+        }
+
+        .boton{
+            width: 30%;
+            margin-left: 35%;
+            height: 60px;
+            font-size: 100%;
+            font-weight: bold;
+            background-color: #f0ec2c;
+            border: 4px solid white;
+            border-radius: 10px;
+            color: rgb(29, 29, 29);
+        }
+
+        .boton:hover{
+            background-color: #cbce14;
+            cursor: pointer;
+            border: 4px solid black;
+            color: white;
+        }
+
+        .boton:active{
+            background-color: #eaf55842;
+        }
+
+        #song-search{
+            align-content: center;
+        }
+
+        main{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        .loader{
+            display: none;
+            margin: auto;
+        }
+        .song blockquote{
+            white-space: pre-wrap;
+        }
+
+        .artist,.song{
+            color: rgb(20, 20, 20);
+            text-align: center;
+        }
+        .artist >h2,
+        .song>h2{
+            font-size: 3rem;
+        }
+
+        .song>blockquote{
+            font-size: 1.2rem;
+            background-color: rgba(32, 32, 32, 0.295);
+            text-align: justify;
+        }
+
+        .artist >p,
+        .song>p{
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 2px rgb(238, 233, 233);
+        }
+
+        .artist>a{
+            font-size: 1.5rem ;
+            font-weight: bold;
+            color: rgb(27, 27, 27);
+        }
+
+        .artist>a:hover{
+            color: rgb(34, 33, 33);
+        }
+        @media screen and (min-width:800px) {
+            main{
+                flex-direction: row;
+            }
+
+            main>*{
+                padding: 1rem;
+                flex-basis: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: rgb(27, 27, 26); font-size: 3rem; text-shadow: 5px 3px 2px rgba(119, 245, 224, 0.76);">Buscador de Canciones</h1>
+    <form id="song-search">
+        <input class="input" type="text" name="artist" placeholder="Nombre del Intérprete" required>
+        <br>
+        <input class="input" type="text" name="song" placeholder="Nombre de la Canción" required>
+        <br>
+        <input class = "boton" type="submit" value = "Buscar">
+    </form>
+    <img class="loader" src="./assets/loader.svg" alt="Cargando...">
+    <aside class="error"></aside>
+    <main>
+        <atricle class="artist">
+        </atricle>
+        <article class="song">
+        </article>
+    </main>
+
+    <script src="./assets/main.js"></script>
+</body>
+</html>
